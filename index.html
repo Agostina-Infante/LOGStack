@@ -46,9 +46,9 @@
                 <div id="Tipo-Problema">
                     <h3>TIPO DE RECLAMO / INCIDENCIA</h3>
                     <div id="Botones">
-                        <button><span class="material-symbols-outlined">computer</span> Fallo de hardware</button>
-                        <button><span class="material-symbols-outlined">code</span> Tarea de desarrollo</button>
-                        <button><span class="material-symbols-outlined">bug_report</span> Bug en producción</button>
+                        <button id="FalloHardware"><span class="material-symbols-outlined">computer</span> Fallo de hardware</button>
+                        <button id="TareaDeDesarrollo"><span class="material-symbols-outlined">code</span> Tarea de desarrollo</button>
+                        <button id="BugEnProduccion"><span class="material-symbols-outlined">bug_report</span> Bug en producción</button>
                     </div>
                 </div>
                 <div id="Info-Empleado">
@@ -65,8 +65,74 @@
                 <h3>Asunto/Descripción breve</h3>
                 <input type="text" placeholder="Ej. Monitor no da señal/ Error 500 al guardar cliente">
                 <div id="Espacio">
-                    <p>En este espacio se ponen determinadas opciones para completar según la opción que se eliga de
-                        tipo de problema, pero eso lo hacemos con JS.</p>
+                    
+                    <section id="FalloHardwareOpciones">
+                        <div id="ElegirEquipo">
+                            <h3>Activo / Equipo  Afectado</h3>
+                            <label for="Equipos">Seleccionar del inventario...</label>
+                            <select id="Equipos" name="Equipos">
+                                <option value="Monitor">Monitor</option>
+                                <option value="CPU">CPU</option>
+                                <option value="Periféricos">Periféricos</option>
+                            </select>
+                        </div>
+                        <div id="ElegirNiveles">
+                            <h3>Nivel de impacto</h3>
+                            <label for="Niveles">Bajo (Puedo seguir trabajando)</label>
+                            <select id="Niveles" name="Niveles">
+                                <option value="Bajo">Bajo (Puedo seguir trabajando)</option>
+                                <option value="Medio">Medio (Impacto parcial)</option>
+                                <option value="Urgente">Urgente (Incapaz de trabajar / Bloqueante)</option>
+                            </select>
+                        </div>
+                    </section>
+                    <section id="TareaDeDesarrolloOpciones">
+                        <div id="ProyectoAsignado">
+                            <h3>Proyecto Asignado</h3>
+                            <label for="Proyectos">Proyeccto</label>
+                            <select id="Proyectos" name="Proyectos">
+                                <option value="Proyecto01">Proyecto01</option>
+                                <option value="Proyecto02">Proyecto02</option>
+                                <option value="Proyecto03">Proyecto03</option>
+                            </select>
+                        </div>
+                        <div id="Entregables">
+                            <h3>Entregables / Hito</h3>
+                            <input type="text" placeholder="Ej. Módulo de reportes PDF">
+                        </div>
+                        <div id="FechaLimite">
+                            <h3>Fecha límite estípulada</h3>
+                            <input type="date" name="" id="">
+                        </div>
+                        <div id="Horas">
+                            <h3>Horas semanales estimadas (HR)</h3>
+                            <input type="number" name="" id="">
+                        </div>
+                    </section>
+                    <section id="BugEnProduccionOpciones">
+                        <div id="ElegirTecnología">
+                            <h3>Tecnología / Stack Afectado</h3>
+                            <label for="Stacks">Seleccionar del inventario...</label>
+                            <select id="Stacks" name="Stacks">
+                                <option value="Python">Python</option>
+                                <option value="Postgress">Postgress</option>
+                                <option value="Docker">Docker</option>
+                            </select>
+                        </div>
+                        <div id="ElegirNiveles">
+                            <h3>Urgencia del Cliente</h3>
+                            <label for="Niveles">Bajo (Puedo seguir trabajando)</label>
+                            <select id="Niveles" name="Niveles">
+                                <option value="Bajo">Baja (Detalle cosmético)</option>
+                                <option value="Medio">Medio (Fallo fucional parcial)</option>
+                                <option value="Urgente">Alta (Sistema caído / Pérdida)</option>
+                            </select>
+                        </div>
+                        <div id="Comportamiento">
+                            <h3>Comportamiento esperado vs real</h3>
+                            <input type="text">
+                        </div>
+                    </section>
                 </div>
 
                 <div class="upload-container">
@@ -87,6 +153,7 @@
             </div>
         </section>
     </main>
+    <script src="./script.js"></script>
 </body>
 
 </html>

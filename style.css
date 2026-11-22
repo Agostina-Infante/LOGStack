@@ -88,7 +88,7 @@ button{
     margin: 0;
     padding: 0;
     width: 100%;
-    white-space: non-wrap;
+    white-space: nowrap;
 }
 #Parte-Sup-Iz h1{
     white-space: nowrap;
@@ -146,6 +146,11 @@ button{
     flex-direction: column;
     padding: 20px;
 }
+#Botones button.activo {
+    background-color: rgba(219, 210, 147, 0.4);
+    border: 1px solid rgb(199, 189, 122);
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+}
 #Botones button:hover{
     background-color: rgba(219, 210, 147, 0.164);
     border: 1px solid rgb(199, 189, 122); /*además del hover tmb van a quedar presionados los botones, pero eso lo hacemos con JS*/
@@ -167,7 +172,62 @@ button{
     border-radius: 10px;
     padding: 10px;
 }
+#FalloHardwareOpciones {
+    display: none;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 15px 0;
+}
+#TareaDeDesarrolloOpciones {
+    display: none;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 15px 0;
+}
+#BugEnProduccionOpciones {
+    display: none;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 15px 0;
+}
+#FalloHardwareOpciones > div{
+    flex: 1 1 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+#TareaDeDesarrolloOpciones > div{ /*El >div hace que solo se seleccione el div siguiente en vez de tds*/
+    flex: 1 1 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+#BugEnProduccionOpciones > div {
+    flex: 1 1 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
 
+@media (max-width: 768px) {
+    #FalloHardwareOpciones,
+    #TareaDeDesarrolloOpciones,
+    #BugEnProduccionOpciones {
+        flex-direction: column;
+    }
+    
+    #FalloHardwareOpciones > div,
+    #TareaDeDesarrolloOpciones > div,
+    #BugEnProduccionOpciones > div {
+        width: 100%;
+    }
+}
 
 /*GESTIÓN TÉCNICA -----------------------------------------------------------*/
 
@@ -359,4 +419,13 @@ button{
   height: 100%;
   object-fit: cover;
   display: none; /* Oculto hasta que se seleccione una imagen */
+}
+
+/*NAVEGACION PARA LOS TIPOS DE PROBLEMAS --------*/
+
+
+#FalloHardwareOpciones,
+#TareaDeDesarrolloOpciones,
+#BugEnProduccionOpciones {
+    display: none;
 }
