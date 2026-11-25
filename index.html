@@ -32,13 +32,16 @@
                 <p>Complete el formulario de incidencia para ser derivado al equipo correspondiente</p>
             </div>
             <div id="Parte-Sup-De">
-                <button><span class="material-symbols-outlined">add_circle</span>Nuevo ticket</button>
-                <button><span class="material-symbols-outlined">receipt_long</span>Mis tickets</button>
+                <button type="button" id="NuevoTicket"><span class="material-symbols-outlined">add_circle</span>Nuevo
+                    ticket</button>
+                <button type="" id="MisTickets"><span class="material-symbols-outlined">receipt_long</span>Mis
+                    tickets</button>
             </div>
 
         </section>
         <hr>
-        <section id="Formulario">
+        <form id="Formulario">
+            <!--el form permite usar el evento submit al presionar enter, aunque no se si lo voy a usar :/-->
             <div id="Encabezado">
                 <h2>Nuevo ticket de incidencia</h2>
             </div>
@@ -46,13 +49,16 @@
                 <div id="Tipo-Problema">
                     <h3>TIPO DE RECLAMO / INCIDENCIA</h3>
                     <div id="Botones">
-                        <button id="FalloHardware"><span class="material-symbols-outlined">computer</span> Fallo de hardware</button>
-                        <button id="TareaDeDesarrollo"><span class="material-symbols-outlined">code</span> Tarea de desarrollo</button>
-                        <button id="BugEnProduccion"><span class="material-symbols-outlined">bug_report</span> Bug en producción</button>
+                        <button id="FalloHardware"><span class="material-symbols-outlined">computer</span> Fallo de
+                            hardware</button>
+                        <button id="TareaDeDesarrollo"><span class="material-symbols-outlined">code</span> Tarea de
+                            desarrollo</button>
+                        <button id="BugEnProduccion"><span class="material-symbols-outlined">bug_report</span> Bug en
+                            producción</button>
                     </div>
                 </div>
                 <div id="Info-Empleado">
-                    <div id="Empleado">
+                    <div>
                         <h3>Empleado</h3>
                         <div class="Espacio-Autocompletado" id="Empleado">Pepito Flores</div>
                         <!--Esto y el departamento lo vamosa hacer con variables que completen automáticamente según el inicio de sesión -->
@@ -63,12 +69,12 @@
                     </div>
                 </div>
                 <h3>Asunto/Descripción breve</h3>
-                <input type="text" placeholder="Ej. Monitor no da señal/ Error 500 al guardar cliente">
+                <input id="AsuntoInput" type="text" placeholder="Ej. Monitor no da señal/ Error 500 al guardar cliente">
                 <div id="Espacio">
-                    
+
                     <section id="FalloHardwareOpciones">
                         <div id="ElegirEquipo">
-                            <h3>Activo / Equipo  Afectado</h3>
+                            <h3>Activo / Equipo Afectado</h3>
                             <label for="Equipos">Seleccionar del inventario...</label>
                             <select id="Equipos" name="Equipos">
                                 <option value="Monitor">Monitor</option>
@@ -88,13 +94,13 @@
                     </section>
                     <section id="TareaDeDesarrolloOpciones">
                         <div id="ProyectoAsignado">
-                            <h3>Proyecto Asignado</h3>
-                            <label for="Proyectos">Proyeccto</label>
-                            <select id="Proyectos" name="Proyectos">
-                                <option value="Proyecto01">Proyecto01</option>
-                                <option value="Proyecto02">Proyecto02</option>
-                                <option value="Proyecto03">Proyecto03</option>
-                            </select>
+                            <div id="ProyectoAsignado">
+                                <h3>Proyecto Asignado</h3>
+                                <label for="proyecto-select">Proyecto Asignado</label>
+                                <select name="idProyecto" id="proyecto-select">
+                                    <option value="">Cargando proyectos...</option>
+                                </select>
+                            </div>
                         </div>
                         <div id="Entregables">
                             <h3>Entregables / Hito</h3>
@@ -134,24 +140,32 @@
                         </div>
                     </section>
                 </div>
-
-                <div class="upload-container">
-                    <div class="preview-container">
-                        <img id="vista-previa" src="" alt="Vista previa de la imagen">
-                    </div>
-                     <label for="input-imagen" class="drop-area">
-                        <span class="btn-texto">Seleccionar imagen</span>
-                        <input type="file" id="input-imagen" accept="image/*">
-                    </label>
-                </div>
-
                 <h3>Descripción detallada</h3>
                 <input id="Desc-Detallada" type="text" placeholder="Proporcione todos los detalles posibles...">
                 <hr>
-                <button>Limpiar</button>
-                <button><span class="material-symbols-outlined">send</span>Registrar ticket</button>
+                <button type="button" id="RegistrarTicketBtn"><span
+                        class="material-symbols-outlined">send</span>Registrar ticket</button>
             </div>
-        </section>
+        </form>
+        <div id="ModalMisTickets" class="modal-oculto">
+            <div class="modal-contenido" style="max-width: 600px;">
+                <div class="modal-encabezado">
+                    <h2>Mis Tickets Creados</h2>
+                    <button type="button" id="CerrarMisTickets">X</button>
+                </div>
+                <div style="padding: 20px; display: flex; flex-direction: column; gap: 15px;">
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" id="BuscadorIDTicket" placeholder="Buscar por ID de ticket (ej. TK-01)..."
+                            style="flex: 1; padding: 10px; border-radius: 8px; border: 1px solid rgb(199, 189, 122);">
+                        <button type="button" id="BuscarIDBtn"
+                            style="background-color: rgb(31, 30, 30); color: white; border: none; padding: 0 15px; cursor: pointer;">Buscar</button>
+                    </div>
+                    <div id="ListaMisTickets"
+                        style="max-height: 350px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px;">
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <script src="./script.js"></script>
 </body>
