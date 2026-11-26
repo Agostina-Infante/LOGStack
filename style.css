@@ -57,17 +57,17 @@ nav hr{
     align-items: center;
 }
 
-#Btn-Cerrar-Sesion:hover {
+#CerrarSesionBtn:hover {
     background-color: rgb(177, 125, 30);
     border-color: rgb(177, 125, 30);
     color: rgb(31, 30, 30);
 }
 
-#Btn-Cerrar-Sesion span {
+#CerrarSesionBtn span {
     font-size: 19px;
     line-height: 1;
 }
-#Btn-Cerrar-Sesion {
+#CerrarSesionBtn {
     margin-left: 10px;
 }
 /*FORMULARIO -----------------------------------------------------------*/
@@ -246,7 +246,7 @@ button{
 
 /*Filtro*/
 
-#Filtro-T{
+#FiltroT{
     background-color: white;
     border: 1px solid rgb(199, 189, 122);
     border-radius: 15px;
@@ -257,12 +257,12 @@ button{
     margin-top: 12px;
 }
 
-#Filtro-T section{
+#FiltroT section{
     display: flex;
     align-items: center;
     gap: 5px;
 }
-#Filtro-T p{
+#FiltroT p{
     gap: 10px;
 }
 
@@ -325,7 +325,7 @@ button{
     padding: 0;
 }
 
-#Estancado-Sin-Cambios-Por{
+#EstancadoSinCambiosPor{
     display: flex;
     align-items: center;
     font-weight: bold;
@@ -439,7 +439,7 @@ button{
     font-size: 18px;
 }
 
-#Cerrar-Modal {
+#CerrarModal {
     background: transparent;
     color: white;
     border: none;
@@ -448,14 +448,14 @@ button{
     height: auto;
 }
 
-#Form-Gestion {
+#FormGestion {
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-#Form-Gestion select {
+#FormGestion select {
     padding: 10px;
     border-radius: 8px;
     border: 1px solid rgb(199, 189, 122);

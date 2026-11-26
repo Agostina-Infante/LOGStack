@@ -14,7 +14,7 @@
     <header>
         <nav>
             <img id="Logo" src="./img/Logo-LOGStack.png" alt="">
-            <button type="button" id="Btn-Cerrar-Sesion" title="Cerrar sesión">
+            <button type="button" id="CerrarSesionBtn" title="Cerrar sesión">
                 <span class="material-symbols-outlined">logout</span>
             </button>
             <hr>
@@ -38,27 +38,27 @@
             </div>
         </section>
         <hr>
-        <section id="Cont-Aviso-TE">
+        <section id="ContAvisoTE">
            <section>
                 <span class="material-symbols-outlined">warning</span>
-                <div id="Texto-Cont-Aviso-TE">
+                <div id="TextoContAvisoTE">
                     <h3>¡Atención! Hay tickets estancados</h3>
                     <p>Existen 2 ticket(s) estancados sin avance desde hace más de 3 días.</p>
                 </div>
            </section>
-           <button id="Ver-Estancados">Ver estancados</button>
+           <button id="VerEstancados">Ver estancados</button>
         </section>
-        <section id="Filtro-T">
+        <section id="FiltroT">
             <section>
                 <span class="material-symbols-outlined">filter_alt</span>
                 <h3>FILTRAR POR:</h3>
-                <select id="Lista-Tipo-Problema" name="Tipos-Problema">
+                <select id="ListaTipoProblema" name="Tipos-Problema">
                     <option value="Todos">Todos los tipos</option>
                     <option value="Hardware">Hardware/Soporte</option>
                     <option value="Desarrollo">Desarrollo</option>
                     <option value="Bugs Producción">Bugs Producción</option>
                 </select>
-                <select id="Lista-Estado" name="Estado">
+                <select id="ListaEstado" name="Estado">
                     <option value="Todos">Todos los estados</option>
                     <option value="Pendiente">Pendientes</option>
                     <option value="En proceso">En proceso</option>
@@ -70,36 +70,36 @@
         
         <section id="Tickets">
         </section>
-        <div id="Modal-Gestion" class="modal-oculto">
+        <div id="ModalGestion" class="modal-oculto">
             <div class="modal-contenido">
                 <div class="modal-encabezado">
-                    <h2 id="Modal-Titulo">Gestionar Ticket</h2>
-                    <button type="button" id="Cerrar-Modal">X</button>
+                    <h2 id="ModalTitulo">Gestionar Ticket</h2>
+                    <button type="button" id="CerrarModal">X</button>
                 </div>
-                <form id="Form-Gestion">
-                    <input type="hidden" id="Gestion-ID-Ticket">
+                <form id="FormGestion">
+                    <input type="hidden" id="GestionIDTicket">
                     
-                    <label for="Gestion-Estado">Estado del Ticket:</label>
-                    <select id="Gestion-Estado">
+                    <label for="GestionEstado">Estado del Ticket:</label>
+                    <select id="GestionEstado">
                         <option value="Pendiente">Pendiente</option>
                         <option value="En proceso">En proceso</option>
                         <option value="Resuelto">Resuelto</option>
                     </select>
 
-                    <label for="Gestion-Urgencia">Nivel de Urgencia:</label>
-                    <select id="Gestion-Urgencia">
+                    <label for="GestionUrgencia">Nivel de Urgencia:</label>
+                    <select id="GestionUrgencia">
                         <option value="Bajo">Bajo</option>
                         <option value="Medio">Medio</option>
                         <option value="Urgente">Urgente</option>
                     </select>
 
-                    <label for="Gestion-Asignado">Técnico Asignado:</label>
-                    <select id="Gestion-Asignado">
+                    <label for="GestionAsignado">Técnico Asignado:</label>
+                    <select id="GestionAsignado">
                         <option value="Sin asignar">Sin asignar</option>
                     </select>
 
                     <div class="modal-botones">
-                        <button type="button" id="Cancelar-Gestion">Cancelar</button>
+                        <button type="button" id="CancelarGestion">Cancelar</button>
                         <button type="submit" id="Guardar-Gestion">Guardar cambios</button>
                     </div>
                 </form>

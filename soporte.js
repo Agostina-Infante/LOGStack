@@ -23,14 +23,14 @@ if (nombreUsuario) {
 let todosLosTickets = [];
 let soloEstancados = false;
 
-const selectTipo = document.getElementById("Lista-Tipo-Problema");
-const selectEstado = document.getElementById("Lista-Estado");
-const btnVerEstancados = document.getElementById("Ver-Estancados");
+const selectTipo = document.getElementById("ListaTipoProblema");
+const selectEstado = document.getElementById("ListaEstado");
+const btnVerEstancados = document.getElementById("VerEstancados");
 
-const modalGestion = document.getElementById("Modal-Gestion");
-const formGestion = document.getElementById("Form-Gestion");
-const btnCerrarModal = document.getElementById("Cerrar-Modal");
-const btnCancelarGestion = document.getElementById("Cancelar-Gestion");
+const modalGestion = document.getElementById("ModalGestion");
+const formGestion = document.getElementById("FormGestion");
+const btnCerrarModal = document.getElementById("CerrarModal");
+const btnCancelarGestion = document.getElementById("CancelarGestion");
 
 selectTipo.addEventListener("change", aplicarFiltros);
 selectEstado.addEventListener("change", aplicarFiltros);
@@ -51,7 +51,7 @@ async function cargarTickets() {
     todosLosTickets = await respuesta.json();
     
     const cantidadEstancados = todosLosTickets.filter(t => t.estancado === true).length;
-    const avisoBanner = document.getElementById("Cont-Aviso-TE");
+    const avisoBanner = document.getElementById("ContAvisoTE");
     if (cantidadEstancados > 0) {
         avisoBanner.querySelector("p").innerText = `Existen ${cantidadEstancados} ticket(s) estancados sin avance desde hace más de 3 días.`;
     } else {
@@ -64,7 +64,7 @@ cargarTickets();
 cargarTecnicos();
 
 async function cargarTecnicos() {
-    const selectAsignado = document.getElementById("Gestion-Asignado");
+    const selectAsignado = document.getElementById("GestionAsignado");
     if (!selectAsignado) return;
 
     try {
@@ -103,7 +103,7 @@ function aplicarFiltros() {
 
 function renderizarTickets(listaTickets) {
     const contenedorTickets = document.getElementById("Tickets");
-    const textoContador = document.querySelector("#Filtro-T p");
+    const textoContador = document.querySelector("#FiltroT p");
     
     textoContador.innerText = `Mostrando ${listaTickets.length} tickets`;
     contenedorTickets.innerHTML = "";
@@ -116,7 +116,7 @@ function renderizarTickets(listaTickets) {
     listaTickets.forEach(ticket => {
         let avisoEstancado = "";
         if (ticket.estancado === true) {
-            avisoEstancado = `<p class="Estancado-Sin-Cambios-Por"><span class="material-symbols-outlined">schedule</span>¡Estancado! Sin cambios por &gt;3 días</p>`;
+            avisoEstancado = `<p class="EstancadoSinCambiosPor"><span class="material-symbols-outlined">schedule</span>¡Estancado! Sin cambios por &gt;3 días</p>`;
         }
 
         const urgenciaActual = ticket.urgencia || "Bajo";
@@ -168,11 +168,11 @@ function abrirModalGestion(idTicket) {
     const ticket = todosLosTickets.find(t => String(t.id) === String(idTicket));
     if (!ticket) return;
 
-    document.getElementById("Modal-Titulo").innerText = `Gestionar ${ticket.id}`;
-    document.getElementById("Gestion-ID-Ticket").value = ticket.id;
-    document.getElementById("Gestion-Estado").value = ticket.estado || "Pendiente";
-    document.getElementById("Gestion-Urgencia").value = ticket.urgencia || "Bajo";
-    document.getElementById("Gestion-Asignado").value = ticket.asignado || "Sin asignar";
+    document.getElementById("ModalTitulo").innerText = `Gestionar ${ticket.id}`;
+    document.getElementById("GestionIDTicket").value = ticket.id;
+    document.getElementById("GestionEstado").value = ticket.estado || "Pendiente";
+    document.getElementById("GestionUrgencia").value = ticket.urgencia || "Bajo";
+    document.getElementById("GestionAsignado").value = ticket.asignado || "Sin asignar";
 
     modalGestion.style.display = "flex";
 }
@@ -181,10 +181,10 @@ formGestion.addEventListener("submit", async (evento) => {
     evento.preventDefault();
 
     const datosModificacion = {
-        id: document.getElementById("Gestion-ID-Ticket").value,
-        estado: document.getElementById("Gestion-Estado").value,
-        urgencia: document.getElementById("Gestion-Urgencia").value,
-        asignado: document.getElementById("Gestion-Asignado").value,
+        id: document.getElementById("GestionIDTicket").value,
+        estado: document.getElementById("GestionEstado").value,
+        urgencia: document.getElementById("GestionUrgencia").value,
+        asignado: document.getElementById("GestionAsignado").value,
         dniTecnico: localStorage.getItem("dniLogueado") || "DNI-SOPORTE-01"
     };
 
@@ -200,7 +200,7 @@ formGestion.addEventListener("submit", async (evento) => {
     modalGestion.style.display = "none";
     cargarTickets();
 });
-const btnCerrarSesion = document.getElementById("Btn-Cerrar-Sesion");
+const btnCerrarSesion = document.getElementById("CerrarSesionBtn");
 if (btnCerrarSesion) {
     btnCerrarSesion.addEventListener("click", () => {
         localStorage.removeItem("nombreLogueado");

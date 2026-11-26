@@ -262,7 +262,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 });
 
-const btnCerrarSesion = document.getElementById("Btn-Cerrar-Sesion");
+const btnCerrarSesion = document.getElementById("CerrarSesionBtn");
 if (btnCerrarSesion) {
     btnCerrarSesion.addEventListener("click", () => {
         localStorage.removeItem("nombreLogueado");
