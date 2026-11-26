@@ -159,7 +159,7 @@ function filtrarPorID() {
     }
 
     const filtrados = misTicketsGuardados.filter(t => 
-        t.id.toLowerCase().includes(textoID)
+        String(t.id).toLowerCase().includes(textoID)
     );
     dibujarMisTickets(filtrados);
 }
