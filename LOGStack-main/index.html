@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios | LOGstack</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="./img/Logo-LOGStack.png">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img id="Logo" src="./img/Logo-LOGStack.png" alt="">
+            <button type="button" id="CerrarSesionBtn" title="Cerrar sesión">
+                <span class="material-symbols-outlined">logout</span>
+            </button>
+            <div id="Info-Usuario-Nav">
+                <div id="Pfp">PF</div>
+                <div class="datos-perfil">
+                    <p id="Perfil-Nombre">Pepito Flores</p>
+                    <p id="Perfil-Dpto">Desarrollo</p>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="Parte-Sup">
+            <div id="Parte-Sup-Iz">
+                <h1>Reportar Incidente o Solicitud</h1>
+                <p>Complete el formulario de incidencia para ser derivado al equipo correspondiente</p>
+            </div>
+            <div id="Parte-Sup-De">
+                <button type="button" id="NuevoTicket"><span class="material-symbols-outlined">add_circle</span>Nuevo
+                    ticket</button>
+                <button type="" id="MisTickets"><span class="material-symbols-outlined">receipt_long</span>Mis
+                    tickets</button>
+            </div>
+
+        </section>
+        <hr>
+        <form id="Formulario">
+            <!--el form permite usar el evento submit al presionar enter, aunque no se si lo voy a usar :/-->
+            <div id="Encabezado">
+                <h2>Nuevo ticket de incidencia</h2>
+            </div>
+            <div id="Cuerpo">
+                <div id="Tipo-Problema">
+                    <h3>TIPO DE RECLAMO / INCIDENCIA</h3>
+                    <div id="Botones">
+                        <button id="FalloHardware"><span class="material-symbols-outlined">computer</span> Fallo de
+                            hardware</button>
+                        <button id="TareaDeDesarrollo"><span class="material-symbols-outlined">code</span> Tarea de
+                            desarrollo</button>
+                        <button id="BugEnProduccion"><span class="material-symbols-outlined">bug_report</span> Bug en
+                            producción</button>
+                    </div>
+                </div>
+                <div id="Info-Empleado">
+                    <div>
+                        <h3>Empleado</h3>
+                        <div class="Espacio-Autocompletado" id="Empleado">Pepito Flores</div>
+                        <!--Esto y el departamento lo vamosa hacer con variables que completen automáticamente según el inicio de sesión -->
+                    </div>
+                    <div>
+                        <h3>Departamento</h3>
+                        <div class="Espacio-Autocompletado" id="Departamento">Desarrollo</div>
+                    </div>
+                </div>
+                <h3>Asunto/Descripción breve</h3>
+                <input id="AsuntoInput" type="text" placeholder="Ej. Monitor no da señal/ Error 500 al guardar cliente">
+                <div id="Espacio">
+
+                    <section id="FalloHardwareOpciones">
+                        <div id="ElegirEquipo">
+                            <h3>Activo / Equipo Afectado</h3>
+                            <label for="Equipos">Seleccionar del inventario...</label>
+                            <select id="Equipos" name="Equipos">
+                                <option value="Monitor">Monitor</option>
+                                <option value="CPU">CPU</option>
+                                <option value="Periféricos">Periféricos</option>
+                            </select>
+                        </div>
+                        <div id="ElegirNiveles">
+                            <h3>Nivel de impacto</h3>
+                            <label for="Niveles">Bajo (Puedo seguir trabajando)</label>
+                            <select id="Niveles" name="Niveles">
+                                <option value="Bajo">Bajo (Puedo seguir trabajando)</option>
+                                <option value="Medio">Medio (Impacto parcial)</option>
+                                <option value="Urgente">Urgente (Incapaz de trabajar / Bloqueante)</option>
+                            </select>
+                        </div>
+                    </section>
+                    <section id="TareaDeDesarrolloOpciones">
+                        <div id="ProyectoAsignado">
+                            <div id="ProyectoAsignado">
+                                <h3>Proyecto Asignado</h3>
+                                <label for="proyecto-select">Proyecto Asignado</label>
+                                <select name="idProyecto" id="proyecto-select">
+                                    <option value="">Cargando proyectos...</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="Entregables">
+                            <h3>Entregables / Hito</h3>
+                            <input type="text" placeholder="Ej. Módulo de reportes PDF">
+                        </div>
+                        <div id="FechaLimite">
+                            <h3>Fecha límite estípulada</h3>
+                            <input type="date" name="" id="">
+                        </div>
+                        <div id="Horas">
+                            <h3>Horas semanales estimadas (HR)</h3>
+                            <input type="number" name="" id="">
+                        </div>
+                    </section>
+                    <section id="BugEnProduccionOpciones">
+                        <div id="ElegirTecnología">
+                            <h3>Tecnología / Stack Afectado</h3>
+                            <label for="Stacks">Seleccionar del inventario...</label>
+                            <select id="Stacks" name="Stacks">
+                                <option value="Python">Python</option>
+                                <option value="Postgress">Postgress</option>
+                                <option value="Docker">Docker</option>
+                            </select>
+                        </div>
+                        <div id="ElegirNiveles">
+                            <h3>Urgencia del Cliente</h3>
+                            <label for="Niveles">Bajo (Puedo seguir trabajando)</label>
+                            <select id="Niveles" name="Niveles">
+                                <option value="Bajo">Baja (Detalle cosmético)</option>
+                                <option value="Medio">Medio (Fallo fucional parcial)</option>
+                                <option value="Urgente">Alta (Sistema caído / Pérdida)</option>
+                            </select>
+                        </div>
+                        <div id="Comportamiento">
+                            <h3>Comportamiento esperado vs real</h3>
+                            <input type="text">
+                        </div>
+                    </section>
+                </div>
+                <h3>Descripción detallada</h3>
+                <input id="Desc-Detallada" type="text" placeholder="Proporcione todos los detalles posibles...">
+                <hr>
+                <button type="button" id="RegistrarTicketBtn"><span
+                        class="material-symbols-outlined">send</span>Registrar ticket</button>
+            </div>
+        </form>
+        <div id="ModalMisTickets" class="modal-oculto">
+            <div class="modal-contenido" style="max-width: 600px;">
+                <div class="modal-encabezado">
+                    <h2>Mis Tickets Creados</h2>
+                    <button type="button" id="CerrarMisTickets">X</button>
+                </div>
+                <div style="padding: 20px; display: flex; flex-direction: column; gap: 15px;">
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" id="BuscadorIDTicket" placeholder="Buscar por ID de ticket (ej. TK-01)..."
+                            style="flex: 1; padding: 10px; border-radius: 8px; border: 1px solid rgb(199, 189, 122);">
+                        <button type="button" id="BuscarIDBtn"
+                            style="background-color: rgb(31, 30, 30); color: white; border: none; padding: 0 15px; cursor: pointer;">Buscar</button>
+                    </div>
+                    <div id="ListaMisTickets"
+                        style="max-height: 350px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./script.js"></script>
+</body>
+
+</html>
