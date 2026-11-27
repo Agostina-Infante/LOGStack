@@ -15,12 +15,17 @@ $empleado = $stmtEmp->fetch();
 $dniEmpleado = $empleado ? $empleado["DNI_E"] : 1; 
 
 $idP = 1;
+$urgenciasValidas = ["Bajo", "Medio", "Urgente"];
+$urgencia =in_array($datos["urgencia"]?? "", $urgenciasValidas, true)
+    ? $datos["urgencia"]
+    : "Bajo";
 
-$sql = "INSERT INTO ticket (DNI_E, Descripcion, Nvl_Urgencia, Tipo_Prob, Fecha_Creacion, ID_P) VALUES (?, ?, 'Bajo', ?, CURDATE(), ?)";
+$sql = "INSERT INTO ticket (DNI_E, Descripcion, Nvl_Urgencia, Tipo_Prob, Fecha_Creacion, ID_P) VALUES (?, ?, ?, ?, CURDATE(), ?)";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([
     $dniEmpleado,
     $datos["descripcion"] ?? $datos["titulo"],
+    $urgencia,
     $datos["tipo"],
     $idP
 ]);
